@@ -1,0 +1,24 @@
+---
+# foo: boo
+# foo_list:
+#   - val1 
+#   - val2
+# boo_as_list:
+#   - foo: foo_boo
+#   - boo: adw
+#     name: 
+
+
+- name: "install_my_ecommerce"
+  hosts: ecommerce
+  become: yes
+  tasks:
+    - name: "create helloworld file"
+      file:
+        path: ~/hello_world.txt
+        state: touch
+    - name: "ensure cowsay exists"
+      package:
+        name: "cowsay"
+        state: present
+    
